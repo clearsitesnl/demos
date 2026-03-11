@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Square Kappers — Kapsalon Tegelen & Blerick</title>
+<meta name="description" content="Square Kappers — professionele kapsalon in Tegelen en Blerick. Knippen, kleuren, Curlsys, extensions en meer. Met en zonder afspraak welkom.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bordeaux:#6b1e2e;
+  --bordeaux2:#8b2a3e;
+  --bordeaux-light:#f5eaec;
+  --cream:#faf8f4;
+  --warm:#f2ede4;
+  --sand:#e8dfd0;
+  --stone:#7a7268;
+  --ink:#1c1814;
+  --white:#ffffff;
+  --gold:#c9a96e;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;transition:all .4s;background:rgba(20,14,12,.8);backdrop-filter:blur(16px)}
+nav.scrolled{background:rgba(250,248,244,.97);border-bottom:1px solid rgba(28,24,20,.07);box-shadow:0 2px 20px rgba(0,0,0,.04)}
+.nav-logo{display:flex;flex-direction:column;text-decoration:none}
+.nav-logo-main{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:.5px;line-height:1;color:var(--white)}
+nav.scrolled .nav-logo-main{color:var(--ink)}
+.nav-logo-sub{font-size:9px;font-weight:300;letter-spacing:3px;text-transform:uppercase;margin-top:2px;color:rgba(255,255,255,.45)}
+nav.scrolled .nav-logo-sub{color:var(--stone)}
+.nav-links{display:flex;gap:36px;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:.2s;color:rgba(255,255,255,.9)}
+nav.scrolled .nav-links a{color:var(--stone)}
+.nav-links a:hover{color:var(--white)}
+nav.scrolled .nav-links a:hover{color:var(--bordeaux)}
+.nav-right{display:flex;gap:20px;align-items:center}
+.nav-tel{font-size:11px;font-weight:300;letter-spacing:.3px;color:rgba(255,255,255,.55)}
+nav.scrolled .nav-tel{color:var(--stone)}
+.nav-afspraak{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;background:var(--bordeaux);color:var(--white);padding:11px 24px;text-decoration:none;transition:.2s}
+.nav-afspraak:hover{background:var(--bordeaux2)}
+
+/* ── HERO ── */
+.hero{height:100vh;position:relative;display:grid;grid-template-columns:52% 48%;overflow:hidden}
+.hero-photo{position:relative;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, rgba(28,24,20,.45) 0%, rgba(28,24,20,.1) 60%, transparent 100%)}
+
+.hero-right{background:var(--warm);display:flex;flex-direction:column;justify-content:center;padding:80px 64px 80px 56px;position:relative;overflow:hidden}
+.hero-right::before{content:'';position:absolute;top:-120px;right:-80px;width:360px;height:360px;border-radius:50%;background:rgba(107,30,46,.05);pointer-events:none}
+.hero-right::after{content:'';position:absolute;bottom:-80px;left:-40px;width:240px;height:240px;border-radius:50%;background:rgba(107,30,46,.04);pointer-events:none}
+
+.hero-eyebrow{font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--bordeaux);margin-bottom:20px;display:flex;align-items:center;gap:12px;animation:fadeUp .8s .1s both}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--bordeaux);flex-shrink:0}
+.hero-h{font-family:'Playfair Display',serif;font-size:clamp(40px,4.8vw,68px);font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:20px;letter-spacing:-.5px;animation:fadeUp .8s .18s both}
+.hero-h em{font-style:italic;color:var(--bordeaux)}
+.hero-sub{font-size:15px;color:var(--stone);line-height:1.85;font-weight:300;margin-bottom:36px;max-width:380px;animation:fadeUp .8s .28s both}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .36s both}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;background:var(--bordeaux);color:var(--white);padding:15px 30px;text-decoration:none;transition:.2s}
+.btn-primary:hover{background:var(--bordeaux2);transform:translateY(-1px)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--bordeaux);border:1px solid rgba(107,30,46,.3);padding:15px 26px;text-decoration:none;transition:.2s}
+.btn-secondary:hover{border-color:var(--bordeaux);background:var(--bordeaux-light)}
+
+.hero-badges{display:flex;flex-direction:column;gap:10px;margin-top:36px;animation:fadeUp .8s .44s both}
+.hbadge{display:inline-flex;align-items:center;gap:10px;background:var(--white);padding:11px 18px;font-size:12px;font-weight:400;color:var(--stone);width:fit-content;box-shadow:0 2px 16px rgba(28,24,20,.06)}
+.hbadge-dot{width:7px;height:7px;border-radius:50%;background:var(--bordeaux);flex-shrink:0}
+
+/* Location pill top of hero */
+.hero-location{position:absolute;bottom:36px;left:40px;z-index:2;display:flex;gap:10px}
+.loc-pill{background:rgba(28,24,20,.7);backdrop-filter:blur(8px);color:var(--white);padding:8px 16px;font-size:11px;font-weight:300;letter-spacing:1.5px;display:flex;align-items:center;gap:8px}
+.loc-pill::before{content:'📍';font-size:12px}
+
+/* ── TICKER ── */
+.ticker{background:var(--bordeaux);padding:13px 0;overflow:hidden}
+.ticker-track{display:flex;animation:ticker 22s linear infinite;white-space:nowrap}
+.ticker-item{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:rgba(255,255,255,.7);padding:0 32px;flex-shrink:0}
+.ticker-sep{color:var(--gold);padding:0 8px}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── ABOUT STRIP ── */
+.about-strip{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid rgba(28,24,20,.07)}
+.as-item{padding:48px 40px;border-right:1px solid rgba(28,24,20,.07);text-align:center}
+.as-item:last-child{border:none}
+.as-num{font-family:'Playfair Display',serif;font-style:italic;font-size:48px;color:var(--bordeaux);line-height:1;margin-bottom:8px}
+.as-label{font-size:10px;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:var(--stone)}
+
+/* ── DIENSTEN ── */
+.diensten{padding:110px 56px;background:var(--cream)}
+.section-head{margin-bottom:64px}
+.section-kicker{font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--bordeaux);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.section-kicker::before{content:'';width:24px;height:1px;background:var(--bordeaux);flex-shrink:0}
+.section-h{font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,60px);font-weight:400;line-height:1.05;color:var(--ink);letter-spacing:-.5px}
+.section-h em{font-style:italic;color:var(--bordeaux)}
+
+/* Diensten grid: 3 col top, then featured Curlsys wide */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px}
+.svc-card{background:var(--white);padding:36px 32px;position:relative;overflow:hidden;transition:.3s;cursor:default}
+.svc-card:hover{background:var(--bordeaux);color:var(--white)}
+.svc-card::before{content:attr(data-num);position:absolute;top:-16px;right:12px;font-family:'Playfair Display',serif;font-style:italic;font-size:100px;color:rgba(107,30,46,.04);line-height:1;pointer-events:none;transition:.3s}
+.svc-card:hover::before{color:rgba(255,255,255,.06)}
+.svc-icon{font-size:26px;margin-bottom:20px;display:block;transition:.3s}
+.svc-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:10px;transition:.3s}
+.svc-card:hover .svc-name{color:var(--white)}
+.svc-desc{font-size:13px;color:var(--stone);line-height:1.7;font-weight:300;transition:.3s}
+.svc-card:hover .svc-desc{color:rgba(255,255,255,.7)}
+
+/* Curlsys featured */
+.curlsys-card{background:var(--bordeaux);padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:2px}
+.cc-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:var(--white);padding:7px 16px;font-size:9px;font-weight:500;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
+.cc-h{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,46px);font-weight:400;color:var(--white);line-height:1.1;margin-bottom:16px}
+.cc-h em{font-style:italic;color:var(--gold)}
+.cc-body{font-size:14px;color:rgba(255,255,255,.65);line-height:1.85;font-weight:300;margin-bottom:28px}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:14px 28px;text-decoration:none;transition:.2s}
+.btn-gold:hover{background:#dbbe85}
+.cc-right{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cc-point{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);padding:16px 20px}
+.cc-point-icon{font-size:18px;margin-bottom:8px;display:block}
+.cc-point-title{font-size:13px;font-weight:500;color:var(--white);margin-bottom:4px}
+.cc-point-desc{font-size:11px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.5}
+
+/* ── WERKWIJZE STRIP ── */
+.werkwijze{padding:80px 56px;background:var(--warm)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:56px}
+.steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:linear-gradient(to right,transparent,var(--sand),var(--sand),transparent);z-index:0}
+.step{text-align:center;padding:0 20px;position:relative;z-index:1}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--bordeaux);color:var(--white);font-family:'Playfair Display',serif;font-style:italic;font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 20px rgba(107,30,46,.25)}
+.step-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--ink);margin-bottom:8px;font-weight:400}
+.step-desc{font-size:12px;color:var(--stone);line-height:1.65;font-weight:300}
+
+/* ── OVER ONS ── */
+.about{display:grid;grid-template-columns:5fr 7fr;min-height:600px}
+.about-photo-col{position:relative;overflow:hidden}
+.about-photo-col img{width:100%;height:100%;object-fit:cover;filter:brightness(.9)}
+.about-photo-col::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(28,24,20,.5),transparent 50%)}
+.about-photo-badge{position:absolute;bottom:32px;left:32px;right:32px;z-index:2}
+.apb-stars{color:var(--gold);letter-spacing:3px;font-size:14px;margin-bottom:6px}
+.apb-text{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:var(--white);line-height:1.5;margin-bottom:8px}
+.apb-name{font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5)}
+
+.about-content{background:var(--warm);padding:80px 64px;display:flex;flex-direction:column;justify-content:center}
+.about-h{font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,54px);font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:0;letter-spacing:-.5px}
+.about-h em{font-style:italic;color:var(--bordeaux)}
+.about-body{margin-top:28px}
+.about-body p{font-size:14px;color:var(--stone);line-height:1.9;font-weight:300;margin-bottom:12px}
+.about-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.pill{background:var(--white);border:1px solid rgba(28,24,20,.1);padding:8px 16px;font-size:11px;font-weight:400;letter-spacing:1px;text-transform:uppercase;color:var(--stone);transition:.2s}
+.pill:hover{background:var(--bordeaux);color:var(--white);border-color:transparent}
+
+.openingstijden{margin-top:36px;padding-top:28px;border-top:1px solid rgba(28,24,20,.08)}
+.ot-title{font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--bordeaux);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.ot-title::before{content:'';width:16px;height:1px;background:var(--bordeaux)}
+.ot-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 32px}
+.ot-row{display:flex;justify-content:space-between;font-size:13px;font-weight:300;color:var(--stone);padding:4px 0;border-bottom:1px solid rgba(28,24,20,.05)}
+.ot-row span:first-child{font-weight:400;color:var(--ink)}
+.ot-closed{text-decoration:line-through;opacity:.4}
+
+/* ── FOTO GALLERIJ ── */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:280px 280px;gap:3px}
+.gal-item{position:relative;overflow:hidden}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:.5s;filter:brightness(.9)}
+.gal-item:hover img{transform:scale(1.06);filter:brightness(.8)}
+.gal-item.span2c{grid-column:span 2}
+.gal-item.span2r{grid-row:span 2}
+.gal-cap{position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(to top,rgba(28,24,20,.7),transparent);opacity:0;transition:.3s;transform:translateY(8px)}
+.gal-item:hover .gal-cap{opacity:1;transform:translateY(0)}
+.gal-cap span{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--white)}
+
+/* ── REVIEWS ── */
+.reviews{padding:110px 56px;background:var(--cream)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.rev-card{background:var(--white);padding:36px;position:relative;transition:.3s}
+.rev-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(28,24,20,.07)}
+.rev-quote{font-family:'Playfair Display',serif;font-size:60px;color:var(--bordeaux);line-height:.7;opacity:.2;margin-bottom:12px;display:block}
+.rev-text{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:var(--ink);line-height:1.7;margin-bottom:20px}
+.rev-bar{width:28px;height:2px;background:var(--bordeaux);margin-bottom:16px}
+.rev-name{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.rev-detail{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--stone)}
+.rev-stars{color:var(--gold);font-size:12px;letter-spacing:2px;margin-top:10px}
+
+/* Google rating badge */
+.google-badge{display:inline-flex;align-items:center;gap:12px;background:var(--white);border:1px solid rgba(28,24,20,.08);padding:14px 24px;margin-top:40px;box-shadow:0 2px 20px rgba(28,24,20,.05)}
+.gb-logo{font-size:18px}
+.gb-score{font-family:'Playfair Display',serif;font-size:26px;font-style:italic;color:var(--bordeaux);line-height:1}
+.gb-label{font-size:10px;font-weight:300;letter-spacing:1.5px;text-transform:uppercase;color:var(--stone)}
+
+/* ── VESTIGINGEN ── */
+.vestigingen{background:var(--bordeaux);padding:100px 56px;display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.vest{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:56px 48px}
+.vest:hover{background:rgba(255,255,255,.1)}
+.vest-city{font-family:'Playfair Display',serif;font-size:clamp(36px,4vw,54px);font-weight:400;color:var(--white);margin-bottom:4px;line-height:1}
+.vest-city em{font-style:italic;color:var(--gold)}
+.vest-badge{display:inline-block;font-size:9px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.15);padding:5px 14px;margin-bottom:28px}
+.vest-info{display:flex;flex-direction:column;gap:12px}
+.vi-row{display:flex;align-items:flex-start;gap:12px;font-size:13px;color:rgba(255,255,255,.6);font-weight:300;line-height:1.5}
+.vi-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.vi-row strong{color:rgba(255,255,255,.9);font-weight:500;display:block;font-size:14px}
+.vest-cta{margin-top:32px;display:flex;gap:12px}
+.btn-white{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;background:var(--white);color:var(--bordeaux);padding:13px 24px;text-decoration:none;transition:.2s}
+.btn-white:hover{background:var(--cream)}
+.btn-ghost-b{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:400;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.2);padding:13px 20px;text-decoration:none;transition:.2s}
+.btn-ghost-b:hover{border-color:rgba(255,255,255,.5);color:var(--white)}
+
+/* ── AFSPRAAK WIZARD ── */
+.afspraak{padding:110px 56px;background:var(--warm)}
+.afspraak-inner{display:grid;grid-template-columns:380px 1fr;gap:64px;align-items:start;max-width:1200px}
+.afs-left .section-kicker{margin-bottom:16px}
+.afs-h{font-family:'Playfair Display',serif;font-size:clamp(32px,3.8vw,52px);font-weight:400;line-height:1.05;color:var(--ink);margin-bottom:16px;letter-spacing:-.5px}
+.afs-h em{font-style:italic;color:var(--bordeaux)}
+.afs-sub{font-size:14px;color:var(--stone);line-height:1.85;font-weight:300;margin-bottom:28px;max-width:340px}
+.afs-contact{display:flex;flex-direction:column;gap:10px}
+.afc-link{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--stone);font-size:13px;font-weight:300;transition:.2s;padding:2px 0}
+.afc-link:hover{color:var(--bordeaux)}
+.afc-link-icon{width:32px;height:32px;background:var(--bordeaux-light);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:.2s}
+.afc-link:hover .afc-link-icon{background:var(--bordeaux);color:var(--white)}
+
+/* Wizard card */
+.wizard{background:var(--white);box-shadow:0 12px 60px rgba(28,24,20,.07);overflow:hidden}
+/* Progress bar */
+.wiz-progress{display:flex;border-bottom:1px solid rgba(28,24,20,.07)}
+.wiz-step-tab{flex:1;padding:14px 8px;text-align:center;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(28,24,20,.25);border-bottom:2px solid transparent;transition:.3s;cursor:default;display:flex;flex-direction:column;align-items:center;gap:4px}
+.wiz-step-tab.done{color:var(--bordeaux);cursor:pointer}
+.wiz-step-tab.done:hover{background:var(--bordeaux-light)}
+.wiz-step-tab.active{color:var(--bordeaux);border-bottom-color:var(--bordeaux)}
+.wiz-step-num{width:22px;height:22px;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;transition:.3s}
+.wiz-step-tab.active .wiz-step-num,.wiz-step-tab.done .wiz-step-num{background:var(--bordeaux);border-color:var(--bordeaux);color:var(--white)}
+/* Panels */
+.wiz-panels{position:relative;overflow:hidden}
+.wiz-panel{display:none;padding:40px 44px 44px;animation:panelIn .35s ease both}
+.wiz-panel.active{display:block}
+@keyframes panelIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.wiz-panel-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:6px}
+.wiz-panel-sub{font-size:12px;color:var(--stone);font-weight:300;margin-bottom:28px;letter-spacing:.3px}
+
+/* Vestiging keuze — grote klikbare tiles */
+.vest-tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.vest-tile{border:2px solid rgba(28,24,20,.1);padding:28px 24px;cursor:pointer;transition:.25s;position:relative;overflow:hidden;text-align:left}
+.vest-tile:hover{border-color:var(--bordeaux);background:var(--bordeaux-light)}
+.vest-tile.selected{border-color:var(--bordeaux);background:var(--bordeaux);color:var(--white)}
+.vt-city{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:var(--ink);line-height:1;margin-bottom:4px;transition:.2s}
+.vest-tile.selected .vt-city{color:var(--white)}
+.vt-addr{font-size:11px;color:var(--stone);font-weight:300;margin-bottom:12px;transition:.2s}
+.vest-tile.selected .vt-addr{color:rgba(255,255,255,.65)}
+.vt-hours{font-size:11px;color:var(--stone);line-height:1.6;font-weight:300;transition:.2s}
+.vest-tile.selected .vt-hours{color:rgba(255,255,255,.55)}
+.vt-check{position:absolute;top:14px;right:14px;width:22px;height:22px;border-radius:50%;background:var(--gold);display:none;align-items:center;justify-content:center;font-size:12px;color:var(--white)}
+.vest-tile.selected .vt-check{display:flex}
+
+/* Behandeling grid */
+.behandeling-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.beh-card{border:1.5px solid rgba(28,24,20,.09);padding:18px 14px;cursor:pointer;transition:.25s;text-align:center}
+.beh-card:hover{border-color:var(--bordeaux);background:var(--bordeaux-light)}
+.beh-card.selected{border-color:var(--bordeaux);background:var(--bordeaux)}
+.beh-icon{display:none}
+.beh-name{font-size:12px;font-weight:500;color:var(--ink);line-height:1.3;transition:.2s}
+.beh-card.selected .beh-name{color:var(--white)}
+.beh-dur{font-size:10px;color:var(--stone);margin-top:3px;font-weight:300;transition:.2s}
+.beh-card.selected .beh-dur{color:rgba(255,255,255,.6)}
+
+/* Kapster grid */
+.kapster-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-height:440px;overflow-y:auto;padding-right:4px;scrollbar-width:thin;scrollbar-color:var(--bordeaux) transparent}
+.kapster-grid::-webkit-scrollbar{width:3px}
+.kapster-grid::-webkit-scrollbar-thumb{background:var(--bordeaux);border-radius:2px}
+.kap-card{border:1.5px solid rgba(28,24,20,.09);cursor:pointer;transition:.25s;overflow:hidden;position:relative}
+.kap-card:hover{border-color:var(--bordeaux)}
+.kap-card.selected{border-color:var(--bordeaux)}
+.kap-placeholder{width:100%;aspect-ratio:3/4;background:var(--warm);display:flex;align-items:center;justify-content:center;transition:.3s}
+.kap-placeholder span{font-size:36px;color:var(--sand);font-weight:300;line-height:1;user-select:none;transition:.3s}
+.kap-card:hover .kap-placeholder{background:var(--bordeaux-light)}
+.kap-card:hover .kap-placeholder span{color:var(--bordeaux)}
+.kap-card.selected .kap-placeholder{background:var(--bordeaux)}
+.kap-card.selected .kap-placeholder span{color:rgba(255,255,255,.5)}
+.kap-info{padding:12px 12px 14px}
+.kap-name{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.kap-spec{font-size:10px;color:var(--stone);font-weight:300;line-height:1.4}
+.kap-check{position:absolute;top:10px;right:10px;width:24px;height:24px;border-radius:50%;background:var(--bordeaux);display:none;align-items:center;justify-content:center;font-size:12px;color:var(--white)}
+.kap-card.selected .kap-check{display:flex}
+.kap-any{display:flex;align-items:center;justify-content:center;gap:10px;border:1.5px dashed rgba(28,24,20,.15);padding:16px;cursor:pointer;transition:.25s;font-size:12px;color:var(--stone);font-weight:300}
+.kap-any:hover,.kap-any.selected{border-color:var(--bordeaux);color:var(--bordeaux);background:var(--bordeaux-light)}
+.kap-vest-label{font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(28,24,20,.3);margin-bottom:12px;margin-top:4px}
+
+/* Datum & tijd */
+.dt-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-label{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(28,24,20,.35)}
+.form-input,.form-select{background:var(--warm);border:1.5px solid rgba(28,24,20,.09);color:var(--ink);padding:13px 16px;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;transition:.2s;border-radius:0;-webkit-appearance:none;width:100%}
+.form-input::placeholder{color:rgba(28,24,20,.3)}
+.form-input:focus,.form-select:focus{border-color:var(--bordeaux);background:var(--white)}
+.tijdsloten{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:4px}
+.tijdslot{padding:10px 6px;border:1.5px solid rgba(28,24,20,.09);text-align:center;font-size:12px;font-weight:400;color:var(--stone);cursor:pointer;transition:.2s}
+.tijdslot:hover{border-color:var(--bordeaux);color:var(--bordeaux)}
+.tijdslot.selected{background:var(--bordeaux);border-color:var(--bordeaux);color:var(--white)}
+.tijdslot.vol{opacity:.3;cursor:not-allowed;text-decoration:line-through}
+.dt-naam-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:0}
+.form-fullrow{grid-column:span 2}
+
+/* Bevestiging */
+.bevestiging{text-align:center;padding:20px 0 8px}
+.bev-icon{font-size:56px;margin-bottom:16px;display:block}
+.bev-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:var(--ink);margin-bottom:8px}
+.bev-sub{font-size:14px;color:var(--stone);line-height:1.8;font-weight:300;margin-bottom:32px;max-width:360px;margin-left:auto;margin-right:auto}
+.bev-summary{background:var(--warm);padding:20px 24px;text-align:left;margin-bottom:24px}
+.bev-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(28,24,20,.07);font-size:13px}
+.bev-row:last-child{border:none}
+.bev-row span:first-child{color:var(--stone);font-weight:300}
+.bev-row span:last-child{font-weight:500;color:var(--ink)}
+.btn-wa-bev{display:flex;align-items:center;justify-content:center;gap:10px;background:#25d366;color:#fff;padding:14px;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;transition:.2s;margin-bottom:10px}
+.btn-wa-bev:hover{background:#1fba58}
+
+/* Nav buttons */
+.wiz-nav{display:flex;align-items:center;justify-content:space-between;padding:20px 44px;border-top:1px solid rgba(28,24,20,.07);background:var(--white)}
+.btn-wiz-back{background:none;border:1.5px solid rgba(28,24,20,.15);color:var(--stone);padding:12px 24px;font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.2s}
+.btn-wiz-back:hover{border-color:var(--ink);color:var(--ink)}
+.btn-wiz-next{background:var(--bordeaux);border:none;color:var(--white);padding:14px 32px;font-family:'Jost',sans-serif;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;transition:.2s}
+.btn-wiz-next:hover{background:var(--bordeaux2)}
+.btn-wiz-next:disabled{opacity:.35;cursor:not-allowed}
+.wiz-step-indicator{font-size:11px;color:var(--stone);font-weight:300}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);padding:64px 56px 40px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.footer-brand{}
+.fb-logo{font-family:'Playfair Display',serif;font-size:22px;color:var(--white);margin-bottom:6px;font-weight:400}
+.fb-logo em{font-style:italic;color:var(--bordeaux2)}
+.fb-tagline{font-size:11px;color:rgba(255,255,255,.25);letter-spacing:1px;font-weight:300;margin-bottom:20px}
+.fb-social{display:flex;gap:10px}
+.social-btn{width:36px;height:36px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:16px;text-decoration:none;transition:.2s}
+.social-btn:hover{background:var(--bordeaux);border-color:var(--bordeaux)}
+.footer-col h4{font-size:9px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:10px;font-weight:300;transition:.2s}
+.footer-col a:hover{color:var(--bordeaux2)}
+.footer-col p{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:8px;font-weight:300;line-height:1.6}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.18);letter-spacing:1px}
+.footer-clearsite{font-size:11px;color:rgba(255,255,255,.35)}
+.footer-clearsite a{color:var(--gold);text-decoration:none;transition:.2s;font-weight:500}
+.footer-clearsite a:hover{color:var(--gold2)}
+
+/* ── DEMO PROTECTION ── */
+.demo-bar{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#1c1814 0%,#2d1a22 100%);border-top:2px solid var(--bordeaux);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:56px;box-shadow:0 -4px 32px rgba(0,0,0,.4)}
+.demo-bar-left{display:flex;align-items:center;gap:14px}
+.demo-bar-logo{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--white);letter-spacing:.5px}
+.demo-bar-logo em{font-style:italic;color:var(--gold)}
+.demo-bar-divider{width:1px;height:20px;background:rgba(255,255,255,.12)}
+.demo-bar-label{font-size:10px;font-weight:400;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.demo-bar-name{font-size:12px;font-weight:500;color:rgba(255,255,255,.6);letter-spacing:.3px}
+.demo-bar-right{display:flex;align-items:center;gap:20px}
+.demo-bar-cta{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;background:var(--bordeaux);color:var(--white);padding:10px 22px;text-decoration:none;transition:.2s;border:none;cursor:pointer;font-family:'Jost',sans-serif}
+.demo-bar-cta:hover{background:var(--bordeaux2)}
+.demo-bar-info{font-size:10px;color:rgba(255,255,255,.25);font-weight:300;letter-spacing:.3px}
+
+/* Watermark overlay — subtle corner stamp */
+.demo-watermark{position:fixed;bottom:72px;right:24px;z-index:9998;background:rgba(28,24,20,.85);backdrop-filter:blur(8px);border:1px solid rgba(201,169,110,.25);padding:8px 14px;pointer-events:none;display:flex;align-items:center;gap:8px}
+.demo-watermark-text{font-size:9px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(201,169,110,.6)}
+
+/* Push content up so demo bar doesn't cover footer */
+body{padding-bottom:56px}
+.r.v{opacity:1;transform:none}
+.r2{opacity:0;transform:translateY(24px);transition:.8s .15s ease}
+.r2.v{opacity:1;transform:none}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:1024px){
+  nav{padding:0 28px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;height:auto}
+  .hero-photo{height:60vw;min-height:340px}
+  .hero-right{padding:56px 32px}
+  .about-strip{grid-template-columns:1fr}
+  .as-item{border-right:none;border-bottom:1px solid rgba(28,24,20,.07)}
+  .diensten{padding:80px 28px}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .curlsys-card{grid-template-columns:1fr;gap:28px;padding:36px 28px}
+  .werkwijze{padding:72px 28px}
+  .steps{grid-template-columns:1fr 1fr;gap:32px}
+  .steps::before{display:none}
+  .about{grid-template-columns:1fr}
+  .about-photo-col{height:60vw}
+  .about-content{padding:60px 32px}
+  .ot-grid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+  .gal-item.span2c,.gal-item.span2r{grid-column:auto;grid-row:auto}
+  .reviews{padding:80px 28px}
+  .reviews-grid{grid-template-columns:1fr}
+  .vestigingen{grid-template-columns:1fr;padding:72px 28px}
+  .afspraak{padding:80px 28px}
+  .afspraak-inner{grid-template-columns:1fr;gap:36px}
+  .behandeling-grid{grid-template-columns:repeat(3,1fr)}
+  .wiz-panel{padding:28px 22px 32px}
+  .wiz-nav{padding:16px 22px}
+  footer{padding:48px 28px 32px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#">
+    <span class="nav-logo-main">Square Kappers</span>
+    <span class="nav-logo-sub">Tegelen & Blerick</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#diensten">Diensten</a></li>
+    <li><a href="#over">Over ons</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#vestigingen">Vestigingen</a></li>
+    <li><a href="#afspraak">Afspraak</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-tel">(077) 373 62 33</span>
+    <a class="nav-afspraak" href="#afspraak">Afspraak maken</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-photo">
+    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1400&q=85&auto=format&fit=crop" alt="Square Kappers — professionele kapsalon in Tegelen" loading="eager"/>
+    <div class="hero-location">
+      <div class="loc-pill">Tegelen</div>
+      <div class="loc-pill">Blerick</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-eyebrow">Kapsalon · Tegelen & Blerick</div>
+    <h1 class="hero-h">Jouw haar,<br>onze <em>passie.</em></h1>
+    <p class="hero-sub">Bij Square Kappers vertrek je altijd met een fris kapsel en een glimlach. In een ontspannen sfeer werken wij met creativiteit en kwaliteit aan jouw beste look.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#afspraak">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Afspraak maken
+      </a>
+      <a class="btn-secondary" href="#diensten">Bekijk diensten →</a>
+    </div>
+    <div class="hero-badges">
+      <div class="hbadge"><div class="hbadge-dot"></div>Curlsys® gecertificeerd</div>
+      <div class="hbadge"><div class="hbadge-dot"></div>Met & zonder afspraak welkom</div>
+      <div class="hbadge"><div class="hbadge-dot"></div>Dames · Heren · Kinderen</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Knippen</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Kleuren</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Curlsys® Methode</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Extensions</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Highlights & Balayage</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Bruidskapsels</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Straighten</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Hairstrips</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Knippen</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Kleuren</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Curlsys® Methode</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Extensions</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Highlights & Balayage</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Bruidskapsels</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Straighten</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Hairstrips</span><span class="ticker-sep">✦</span>
+  </div>
+</div>
+
+<!-- STAT STRIP -->
+<div class="about-strip r">
+  <div class="as-item"><div class="as-num">4.6★</div><div class="as-label">Google beoordeling</div></div>
+  <div class="as-item"><div class="as-num">2</div><div class="as-label">Vestigingen in Limburg</div></div>
+  <div class="as-item"><div class="as-num">25+</div><div class="as-label">Jaar vakmanschap</div></div>
+</div>
+
+<!-- DIENSTEN -->
+<section class="diensten r" id="diensten">
+  <div class="section-head">
+    <div class="section-kicker">Wat wij bieden</div>
+    <h2 class="section-h">Onze <em>diensten</em></h2>
+  </div>
+
+  <div class="svc-grid">
+    <div class="svc-card" data-num="01">
+      <span class="svc-icon">✂️</span>
+      <div class="svc-name">Knippen & Stylen</div>
+      <div class="svc-desc">Wassen, knippen en föhnen op maat — voor dames, heren en kinderen. Altijd met persoonlijk advies over wat bij jou past.</div>
+    </div>
+    <div class="svc-card" data-num="02">
+      <span class="svc-icon">🎨</span>
+      <div class="svc-name">Kleuren & Highlights</div>
+      <div class="svc-desc">Van een subtiele balayage tot een volledige kleurbehandeling. Wij werken met hoogwaardige kleuren voor een prachtig en duurzaam resultaat.</div>
+    </div>
+    <div class="svc-card" data-num="03">
+      <span class="svc-icon">💍</span>
+      <div class="svc-name">Bruidskapsels</div>
+      <div class="svc-desc">Jouw mooiste dag verdient het perfecte kapsel. Van klassiek tot modern — wij maken van jouw bruiloft een onvergetelijke dag.</div>
+    </div>
+    <div class="svc-card" data-num="04">
+      <span class="svc-icon">✨</span>
+      <div class="svc-name">Extensions & Hairstrips</div>
+      <div class="svc-desc">Meer volume, meer lengte of meer kleur? Met onze professionele extensions en hairstrips realiseer je jouw droomlook.</div>
+    </div>
+    <div class="svc-card" data-num="05">
+      <span class="svc-icon">⚡</span>
+      <div class="svc-name">Straighten</div>
+      <div class="svc-desc">Blijvend recht maken van natuurlijk krullend of pluizig haar. Geniet maandenlang van soepel, steil haar zonder dagelijks gedoe.</div>
+    </div>
+    <div class="svc-card" data-num="06">
+      <span class="svc-icon">🌿</span>
+      <div class="svc-name">Verzorging & Behandelingen</div>
+      <div class="svc-desc">Intensieve haarbehandelingen voor beschadigd, droog of futloos haar. Wij herstellen de gezondheid en glans van jouw haar.</div>
+    </div>
+  </div>
+
+  <!-- Curlsys featured -->
+  <div class="curlsys-card r2">
+    <div>
+      <div class="cc-badge">✦ Exclusieve specialisatie</div>
+      <h3 class="cc-h">Curlsys® —<br><em>de krullenmethode</em></h3>
+      <p class="cc-body">Heb jij last van pluizende krullen of een slag die je niet onder controle krijgt? De exclusieve Curlsys® kniptechniek is speciaal ontwikkeld voor krullend en golvend haar. Eerst wordt jouw specifieke krultype bepaald, daarna wordt de kniptechniek daar volledig op afgestemd.</p>
+      <a class="btn-gold" href="#afspraak">Curlsys afspraak maken →</a>
+    </div>
+    <div class="cc-right">
+      <div class="cc-point"><span class="cc-point-icon">💧</span><div class="cc-point-title">Minder pluizig</div><div class="cc-point-desc">Het haar valt soepel met de krulrichting mee</div></div>
+      <div class="cc-point"><span class="cc-point-icon">🌀</span><div class="cc-point-title">Meer volume</div><div class="cc-point-desc">Versterkt de veerkracht van elke krul</div></div>
+      <div class="cc-point"><span class="cc-point-icon">✂️</span><div class="cc-point-title">Op maat gesneden</div><div class="cc-point-desc">Iedere krul heeft zijn eigen behoefte</div></div>
+      <div class="cc-point"><span class="cc-point-icon">⭐</span><div class="cc-point-title">Gecertificeerd</div><div class="cc-point-desc">Officieel gecertificeerde Curlsys kappers</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WERKWIJZE -->
+<section class="werkwijze r" id="werkwijze">
+  <div class="section-head">
+    <div class="section-kicker">Hoe het werkt</div>
+    <h2 class="section-h">Van afspraak tot <em>resultaat</em></h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Afspraak maken</div>
+      <div class="step-desc">Online, telefonisch of gewoon binnenlopen — met en zonder afspraak ben je welkom bij Square Kappers.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">Persoonlijk advies</div>
+      <div class="step-desc">Onze kappers luisteren naar jouw wensen en geven eerlijk advies over wat bij jouw gezichtstype en stijl past.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Vakkundige behandeling</div>
+      <div class="step-desc">Geniet van een kop koffie en een verwenmoment terwijl onze experts aan jouw kapsel werken.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-title">Stralend resultaat</div>
+      <div class="step-desc">Verlaat de salon met een fris kapsel en een glimlach. Kwaliteit die je ziet en voelt — elke keer weer.</div>
+    </div>
+  </div>
+</section>
+
+<!-- OVER ONS -->
+<section class="about r" id="over">
+  <div class="about-photo-col">
+    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&q=85&auto=format&fit=crop" alt="Square Kappers salon interieur" loading="lazy"/>
+    <div class="about-photo-badge">
+      <div class="apb-stars">★★★★★</div>
+      <div class="apb-text">"Altijd vriendelijk en goede service. Hier kom ik al jaren met plezier."</div>
+      <div class="apb-name">Vaste klant · Tegelen</div>
+    </div>
+  </div>
+  <div class="about-content">
+    <div class="section-kicker">Over Square Kappers</div>
+    <h2 class="about-h">Kappers<br>met <em>passie.</em></h2>
+    <div class="about-body">
+      <p>Square Kappers is een professioneel kappersbedrijf met vestigingen in Blerick en Tegelen. Al meer dan 25 jaar verwelkomen wij klanten in onze salons voor een complete haarverzorging in een warme, ontspannen sfeer.</p>
+      <p>Wij geloven dat creativiteit en vakmanschap hand in hand gaan. Daarom investeren wij voortdurend in de opleiding van ons team — zodat wij altijd de nieuwste technieken en trends voor jou in huis hebben.</p>
+    </div>
+    <div class="about-pills">
+      <div class="pill">Curlsys® gecertificeerd</div>
+      <div class="pill">Extensions specialist</div>
+      <div class="pill">Kleurexpert</div>
+      <div class="pill">Bruidskapsels</div>
+      <div class="pill">Kinder­kapper</div>
+      <div class="pill">Hairstrips</div>
+    </div>
+    <div class="openingstijden">
+      <div class="ot-title">Openingstijden Tegelen</div>
+      <div class="ot-grid">
+        <div class="ot-row"><span>Maandag</span><span>10:00 – 18:00</span></div>
+        <div class="ot-row"><span>Dinsdag</span><span>08:45 – 18:00</span></div>
+        <div class="ot-row"><span>Woensdag</span><span>08:45 – 18:00</span></div>
+        <div class="ot-row"><span>Donderdag</span><span>08:45 – 20:00</span></div>
+        <div class="ot-row"><span>Vrijdag</span><span>08:45 – 18:00</span></div>
+        <div class="ot-row"><span>Zaterdag</span><span>08:00 – 16:00</span></div>
+        <div class="ot-row"><span class="ot-closed">Zondag</span><span class="ot-closed">Gesloten</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERIJ -->
+<div class="gallery r">
+  <div class="gal-item span2r">
+    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=800&q=80&auto=format&fit=crop" alt="Professioneel haarknippen" loading="lazy"/>
+    <div class="gal-cap"><span>Knippen & stylen</span></div>
+  </div>
+  <div class="gal-item">
+    <img src="https://images.unsplash.com/photo-1522337094846-8a818192de1f?w=600&q=80&auto=format&fit=crop" alt="Haarkleuren" loading="lazy"/>
+    <div class="gal-cap"><span>Kleuren</span></div>
+  </div>
+  <div class="gal-item">
+    <img src="https://images.unsplash.com/photo-1470259078422-826894b933aa?w=600&q=80&auto=format&fit=crop" alt="Krullend haar" loading="lazy"/>
+    <div class="gal-cap"><span>Curlsys® methode</span></div>
+  </div>
+  <div class="gal-item span2c">
+    <img src="https://images.unsplash.com/photo-1500840216050-6ffa99d75160?w=1000&q=80&auto=format&fit=crop" alt="Balayage highlights" loading="lazy"/>
+    <div class="gal-cap"><span>Balayage & highlights</span></div>
+  </div>
+  <div class="gal-item">
+    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80&auto=format&fit=crop" alt="Salon sfeer" loading="lazy"/>
+    <div class="gal-cap"><span>Salon sfeer</span></div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews r" id="reviews">
+  <div class="section-head">
+    <div class="section-kicker">Wat klanten zeggen</div>
+    <h2 class="section-h">Onze <em>reviews</em></h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="rev-card">
+      <span class="rev-quote">"</span>
+      <p class="rev-text">Een kapsalon waar de klantvriendelijkheid en zeker de kwaliteit hoog aanwezig is. Zoals altijd perfect geholpen, perfect resultaat!</p>
+      <div class="rev-bar"></div>
+      <div class="rev-name">Ingrid V.</div>
+      <div class="rev-detail">Vaste klant · Tegelen</div>
+      <div class="rev-stars">★★★★★</div>
+    </div>
+    <div class="rev-card">
+      <span class="rev-quote">"</span>
+      <p class="rev-text">Hele fijne kapper waar je altijd vriendelijk en met respect behandeld wordt. Allemaal vakbekwame medewerkers. Kom hier al jaren met veel plezier!</p>
+      <div class="rev-bar"></div>
+      <div class="rev-name">Bart T.</div>
+      <div class="rev-detail">Google recensie · 2023</div>
+      <div class="rev-stars">★★★★★</div>
+    </div>
+    <div class="rev-card">
+      <span class="rev-quote">"</span>
+      <p class="rev-text">Vriendelijk en vakkundig. Goede kapper, hier krijg je echt waar voor je geld. Gewoon goed de haren knippen — en dat doet men hier uitstekend.</p>
+      <div class="rev-bar"></div>
+      <div class="rev-name">Vaste klant</div>
+      <div class="rev-detail">Google recensie · Tegelen</div>
+      <div class="rev-stars">★★★★☆</div>
+    </div>
+  </div>
+  <div class="google-badge">
+    <span class="gb-logo">🌟</span>
+    <div>
+      <div class="gb-score">4.6</div>
+      <div class="gb-label">Google · 35+ beoordelingen</div>
+    </div>
+  </div>
+</section>
+
+<!-- VESTIGINGEN -->
+<section class="vestigingen r" id="vestigingen">
+  <div class="vest">
+    <div class="vest-city"><em>Square</em> Tegelen</div>
+    <div class="vest-badge">Hoofdvestiging</div>
+    <div class="vest-info">
+      <div class="vi-row"><span class="vi-icon">📍</span><div><strong>Adres</strong>Kerkstraat 43–45, 5931 NM Tegelen</div></div>
+      <div class="vi-row"><span class="vi-icon">📞</span><div><strong>Telefoon</strong>(077) 373 62 33</div></div>
+      <div class="vi-row"><span class="vi-icon">🕐</span><div><strong>Openingstijden</strong>Ma 10:00–18:00 · Di–Vr 08:45–18:00<br>Do tot 20:00 · Za 08:00–16:00</div></div>
+      <div class="vi-row"><span class="vi-icon">✉️</span><div><strong>E-mail</strong>info@squarekappers.nl</div></div>
+    </div>
+    <div class="vest-cta">
+      <a class="btn-white" href="#afspraak">Afspraak maken</a>
+      <a class="btn-ghost-b" href="https://maps.google.com/?q=Kerkstraat+43+Tegelen" target="_blank">Route →</a>
+    </div>
+  </div>
+  <div class="vest">
+    <div class="vest-city"><em>Square</em> Blerick</div>
+    <div class="vest-badge">Tweede vestiging</div>
+    <div class="vest-info">
+      <div class="vi-row"><span class="vi-icon">📍</span><div><strong>Adres</strong>Carleyspassage 5, Blerick (Venlo)</div></div>
+      <div class="vi-row"><span class="vi-icon">📞</span><div><strong>Telefoon</strong>(077) 382 90 40</div></div>
+      <div class="vi-row"><span class="vi-icon">🕐</span><div><strong>Openingstijden</strong>Ma 10:00–18:00 · Di–Vr 08:45–18:00<br>Do tot 20:00 · Za 08:00–16:00</div></div>
+      <div class="vi-row"><span class="vi-icon">✉️</span><div><strong>E-mail</strong>info@squarekappers.nl</div></div>
+    </div>
+    <div class="vest-cta">
+      <a class="btn-white" href="#afspraak">Afspraak maken</a>
+      <a class="btn-ghost-b" href="https://maps.google.com/?q=Carleyspassage+5+Blerick" target="_blank">Route →</a>
+    </div>
+  </div>
+</section>
+
+<!-- AFSPRAAK WIZARD -->
+<section class="afspraak r" id="afspraak">
+  <div class="section-kicker" style="margin-bottom:12px">Afspraak maken</div>
+  <h2 class="afs-h">Jouw volgende <em>look</em> wacht.</h2>
+  <p class="afs-sub" style="margin-bottom:40px">Kies je vestiging, behandeling en kapster — en plan direct je afspraak in. Je bent ook altijd welkom zonder afspraak!</p>
+
+  <div class="afspraak-inner">
+    <!-- Left: contact shortcuts -->
+    <div>
+      <p style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(28,24,20,.3);margin-bottom:16px">Of neem direct contact op</p>
+      <div class="afs-contact">
+        <a class="afc-link" href="tel:0773736233"><div class="afc-link-icon">📞</div><span>(077) 373 62 33 — Tegelen</span></a>
+        <a class="afc-link" href="tel:0773829040"><div class="afc-link-icon">📞</div><span>(077) 382 90 40 — Blerick</span></a>
+        <a class="afc-link" href="https://wa.me/31773736233" target="_blank"><div class="afc-link-icon">💬</div><span>WhatsApp ons</span></a>
+        <a class="afc-link" href="mailto:info@squarekappers.nl"><div class="afc-link-icon">✉️</div><span>info@squarekappers.nl</span></a>
+      </div>
+      <div style="margin-top:32px;padding:20px;background:var(--bordeaux-light);border-left:3px solid var(--bordeaux)">
+        <p style="font-size:12px;font-weight:500;color:var(--bordeaux);margin-bottom:4px">Geen afspraak nodig</p>
+        <p style="font-size:12px;color:var(--stone);font-weight:300;line-height:1.6">Je bent bij Square Kappers altijd welkom zonder afspraak. Loop gewoon binnen!</p>
+      </div>
+    </div>
+
+    <!-- Wizard -->
+    <div class="wizard">
+      <!-- Progress tabs -->
+      <div class="wiz-progress">
+        <div class="wiz-step-tab active" id="tab1" onclick="goToStep(1)">
+          <div class="wiz-step-num">1</div>
+          <span>Vestiging</span>
+        </div>
+        <div class="wiz-step-tab" id="tab2" onclick="goToStep(2)">
+          <div class="wiz-step-num">2</div>
+          <span>Behandeling</span>
+        </div>
+        <div class="wiz-step-tab" id="tab3" onclick="goToStep(3)">
+          <div class="wiz-step-num">3</div>
+          <span>Kapster</span>
+        </div>
+        <div class="wiz-step-tab" id="tab4" onclick="goToStep(4)">
+          <div class="wiz-step-num">4</div>
+          <span>Datum & tijd</span>
+        </div>
+      </div>
+
+      <!-- Panel 1: Vestiging -->
+      <div class="wiz-panel active" id="panel1">
+        <div class="wiz-panel-title">Kies je vestiging</div>
+        <div class="wiz-panel-sub">Beide vestigingen bieden hetzelfde complete aanbod</div>
+        <div class="vest-tiles">
+          <div class="vest-tile" id="vt-tegelen" onclick="selectVestiging('Tegelen')">
+            <div class="vt-check">✓</div>
+            <div class="vt-city">Tegelen</div>
+            <div class="vt-addr">Kerkstraat 43–45, 5931 NM</div>
+            <div class="vt-hours">Ma 10–18 · Di–Vr 08:45–18<br>Do tot 20:00 · Za 08–16</div>
+          </div>
+          <div class="vest-tile" id="vt-blerick" onclick="selectVestiging('Blerick')">
+            <div class="vt-check">✓</div>
+            <div class="vt-city">Blerick</div>
+            <div class="vt-addr">Carleyspassage 5, Venlo</div>
+            <div class="vt-hours">Ma 10–18 · Di–Vr 08:45–18<br>Do tot 20:00 · Za 08–16</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 2: Behandeling -->
+      <div class="wiz-panel" id="panel2">
+        <div class="wiz-panel-title">Kies je behandeling</div>
+        <div class="wiz-panel-sub">Selecteer wat je wilt laten doen</div>
+        <div class="behandeling-grid">
+          <div class="beh-card" onclick="selectBehandeling(this,'Knippen dames')">
+            <div class="beh-name">Knippen dames</div>
+            <div class="beh-dur">ca. 45 min</div>
+          </div>
+          <div class="beh-card" onclick="selectBehandeling(this,'Knippen heren')">
+            <div class="beh-name">Knippen heren</div>
+            <div class="beh-dur">ca. 30 min</div>
+          </div>
+          <div class="beh-card" onclick="selectBehandeling(this,'Knippen kinderen')">
+            <div class="beh-name">Knippen kinderen</div>
+            <div class="beh-dur">ca. 30 min</div>
+          </div>
+          <div class="beh-card" onclick="selectBehandeling(this,'Knippen + Kleuren')">
+            <div class="beh-name">Knippen + Kleuren</div>
+            <div class="beh-dur">ca. 2 uur</div>
+          </div>
+          <div class="beh-card" onclick="selectBehandeling(this,'Curlsys®')">
+            <div class="beh-name">Curlsys®</div>
+            <div class="beh-dur">ca. 60 min</div>
+          </div>
+          <div class="beh-card" onclick="selectBehandeling(this,'Balayage / Highlights')">
+            <div class="beh-name">Balayage / Highlights</div>
+            <div class="beh-dur">ca. 2,5 uur</div>
+          </div>
+          <div class="beh-card" onclick="selectBehandeling(this,'Extensions / Hairstrips')">
+            <div class="beh-name">Extensions / Hairstrips</div>
+            <div class="beh-dur">ca. 3 uur</div>
+          </div>
+          <div class="beh-card" onclick="selectBehandeling(this,'Straighten')">
+            <div class="beh-name">Straighten</div>
+            <div class="beh-dur">ca. 2 uur</div>
+          </div>
+          <div class="beh-card" onclick="selectBehandeling(this,'Bruidsstyling')">
+            <div class="beh-name">Bruidsstyling</div>
+            <div class="beh-dur">op afspraak</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 3: Kapster -->
+      <div class="wiz-panel" id="panel3">
+        <div class="wiz-panel-title">Kies je kapster</div>
+        <div class="wiz-panel-sub" id="kap-panel-sub">Selecteer een voorkeur — of kies de eerste beschikbare</div>
+
+        <!-- Tegelen team -->
+        <div id="team-tegelen">
+          <div class="kap-vest-label">Team Tegelen</div>
+          <div class="kapster-grid">
+            <div class="kap-card" onclick="selectKapster(this,'Jos')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Jos</div><div class="kap-spec">ma · wo · do · vrij · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Wilma')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Wilma</div><div class="kap-spec">Tegelen alle dagen</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Lilith')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Lilith</div><div class="kap-spec">ma · di · do · vrij · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Emma')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Emma</div><div class="kap-spec">wo · vrij · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Machiko')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Machiko</div><div class="kap-spec">ma · wo · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Marieke')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Marieke</div><div class="kap-spec">do · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Roos')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Roos</div><div class="kap-spec">do · vrij · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Ellis')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Ellis</div><div class="kap-spec">wo · vrij · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Marjan')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Marjan</div><div class="kap-spec">di · wo · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Marlou')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Marlou</div><div class="kap-spec">ma · di · vrij</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Wiebe')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Wiebe</div><div class="kap-spec">do · vrij · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Cynthia')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Cynthia</div><div class="kap-spec">di · do · vrij · za</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blerick team -->
+        <div id="team-blerick" style="display:none">
+          <div class="kap-vest-label">Team Blerick</div>
+          <div class="kapster-grid">
+            <div class="kap-card" onclick="selectKapster(this,'Ingrid')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Ingrid</div><div class="kap-spec">ma t/m za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Cynthia')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Cynthia</div><div class="kap-spec">di · do · vrij · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Sanne')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Sanne</div><div class="kap-spec">di · do · vrij · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Joyce')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Joyce</div><div class="kap-spec">di · do · vrij</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Ellis')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Ellis</div><div class="kap-spec">ma · vrij · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Machiko')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Machiko</div><div class="kap-spec">vrij</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Roos')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Roos</div><div class="kap-spec">wo</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Willeke')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Willeke</div><div class="kap-spec">do · vrij · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Marjan')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Marjan</div><div class="kap-spec">ma · vrij · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Marlou')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Marlou</div><div class="kap-spec">wo · za</div></div>
+            </div>
+            <div class="kap-card" onclick="selectKapster(this,'Wiebe')">
+              <div class="kap-check">✓</div>
+              <div class="kap-placeholder"><span>?</span></div>
+              <div class="kap-info"><div class="kap-name">Wiebe</div><div class="kap-spec">di · wo</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="kap-any" id="kap-any-btn" onclick="selectKapster(this,'Geen voorkeur')">
+          <span>⚡</span> Eerste beschikbare kapster
+        </div>
+      </div>
+
+      <!-- Panel 4: Datum & tijd + naam -->
+      <div class="wiz-panel" id="panel4">
+        <div class="wiz-panel-title">Kies datum & tijd</div>
+        <div class="wiz-panel-sub">Kies een gewenste datum en tijdslot</div>
+        <div class="dt-grid">
+          <div class="form-group">
+            <label class="form-label">Gewenste datum</label>
+            <input class="form-input" type="date" id="inp-datum"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Jouw naam</label>
+            <input class="form-input" type="text" id="inp-naam" placeholder="Voornaam + achternaam"/>
+          </div>
+          <div class="form-group" style="grid-column:span 2">
+            <label class="form-label">Voorkeur tijdstip</label>
+            <div class="tijdsloten">
+              <div class="tijdslot" onclick="selectTijd(this,'08:45')">08:45</div>
+              <div class="tijdslot" onclick="selectTijd(this,'09:30')">09:30</div>
+              <div class="tijdslot" onclick="selectTijd(this,'10:15')">10:15</div>
+              <div class="tijdslot" onclick="selectTijd(this,'11:00')">11:00</div>
+              <div class="tijdslot" onclick="selectTijd(this,'11:45')">11:45</div>
+              <div class="tijdslot" onclick="selectTijd(this,'13:00')">13:00</div>
+              <div class="tijdslot" onclick="selectTijd(this,'14:00')">14:00</div>
+              <div class="tijdslot" onclick="selectTijd(this,'15:00')">15:00</div>
+              <div class="tijdslot vol" onclick="">16:00</div>
+              <div class="tijdslot" onclick="selectTijd(this,'17:00')">17:00</div>
+              <div class="tijdslot vol">17:45</div>
+              <div class="tijdslot" onclick="selectTijd(this,'19:00')">19:00 🌙</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Telefoonnummer</label>
+            <input class="form-input" type="tel" id="inp-tel" placeholder="06 — — — —"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Opmerking (optioneel)</label>
+            <input class="form-input" type="text" id="inp-note" placeholder="Bijv. lang haar, allergieën..."/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 5: Bevestiging -->
+      <div class="wiz-panel" id="panel5">
+        <div class="bevestiging">
+          <span class="bev-icon">✂️</span>
+          <div class="bev-title">Afspraak aangevraagd!</div>
+          <p class="bev-sub">We nemen zo snel mogelijk contact met je op ter bevestiging. Tot snel bij Square Kappers!</p>
+          <div class="bev-summary" id="bev-summary"></div>
+          <a class="btn-wa-bev" id="btn-wa-confirm" href="#" target="_blank">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Bevestig via WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="wiz-nav" id="wiz-nav">
+        <button class="btn-wiz-back" id="btn-back" onclick="wizBack()" style="visibility:hidden">← Terug</button>
+        <span class="wiz-step-indicator" id="wiz-indicator">Stap 1 van 4</span>
+        <button class="btn-wiz-next" id="btn-next" onclick="wizNext()" disabled>Volgende →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fb-logo"><em>Square</em> Kappers</div>
+      <div class="fb-tagline">Tegelen & Blerick · Kappers met passie</div>
+      <div class="fb-social">
+        <a class="social-btn" href="https://www.instagram.com/squarekappers/" target="_blank">📸</a>
+        <a class="social-btn" href="https://www.facebook.com/p/Square-Kappers-100063774241160/" target="_blank">👥</a>
+        <a class="social-btn" href="https://www.pinterest.com/squarekappers/" target="_blank">📌</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigatie</h4>
+      <a href="#diensten">Diensten</a>
+      <a href="#over">Over ons</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#vestigingen">Vestigingen</a>
+      <a href="#afspraak">Afspraak maken</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tegelen</h4>
+      <p>Kerkstraat 43–45<br>5931 NM Tegelen</p>
+      <a href="tel:0773736233">(077) 373 62 33</a>
+    </div>
+    <div class="footer-col">
+      <h4>Blerick</h4>
+      <p>Carleyspassage 5<br>Blerick (Venlo)</p>
+      <a href="tel:0773829040">(077) 382 90 40</a>
+      <a href="mailto:info@squarekappers.nl">info@squarekappers.nl</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Square Kappers · KVK Venlo</span>
+    <span class="footer-clearsite">Website door <a href="https://clearsite.nl" target="_blank">Clearsite</a> · Demo versie</span>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 60);
+});
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.r, .r2').forEach(el => obs.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+// ── WIZARD STATE ──
+const state = { step: 1, vestiging: null, behandeling: null, kapster: null, datum: null, tijd: null, naam: null, tel: null };
+
+function updateUI() {
+  // Panels
+  document.querySelectorAll('.wiz-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel' + state.step).classList.add('active');
+
+  // Tabs
+  for (let i = 1; i <= 4; i++) {
+    const tab = document.getElementById('tab' + i);
+    tab.classList.remove('active', 'done');
+    if (i === state.step) tab.classList.add('active');
+    else if (i < state.step) tab.classList.add('done');
+  }
+
+  // Nav buttons
+  const back = document.getElementById('btn-back');
+  const next = document.getElementById('btn-next');
+  const ind  = document.getElementById('wiz-indicator');
+  const nav  = document.getElementById('wiz-nav');
+
+  if (state.step === 5) {
+    nav.style.display = 'none';
+    return;
+  }
+  nav.style.display = 'flex';
+  back.style.visibility = state.step > 1 ? 'visible' : 'hidden';
+  ind.textContent = 'Stap ' + state.step + ' van 4';
+
+  // Next button enable logic
+  const canNext = {
+    1: !!state.vestiging,
+    2: !!state.behandeling,
+    3: !!state.kapster,
+    4: !!(state.datum && state.tijd && document.getElementById('inp-naam').value.trim())
+  };
+  next.disabled = !canNext[state.step];
+  next.textContent = state.step < 4 ? 'Volgende →' : 'Afspraak aanvragen →';
+}
+
+function wizNext() {
+  if (state.step === 4) { submitWizard(); return; }
+  if (state.step < 5) { state.step++; updateUI(); }
+}
+function wizBack() {
+  if (state.step > 1) { state.step--; updateUI(); }
+}
+function goToStep(n) {
+  if (n < state.step) { state.step = n; updateUI(); }
+}
+
+// Step 1
+function selectVestiging(v) {
+  state.vestiging = v;
+  state.kapster = null; // reset kapster if vestiging changes
+  document.getElementById('vt-tegelen').classList.toggle('selected', v === 'Tegelen');
+  document.getElementById('vt-blerick').classList.toggle('selected', v === 'Blerick');
+  // Show correct team on step 3
+  document.getElementById('team-tegelen').style.display = v === 'Tegelen' ? 'block' : 'none';
+  document.getElementById('team-blerick').style.display = v === 'Blerick' ? 'block' : 'none';
+  updateUI();
+}
+
+// Step 2
+function selectBehandeling(el, name) {
+  document.querySelectorAll('.beh-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  state.behandeling = name;
+  updateUI();
+}
+
+// Step 3
+function selectKapster(el, name) {
+  document.querySelectorAll('.kap-card, .kap-any').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  state.kapster = name;
+  updateUI();
+}
+
+// Step 4
+function selectTijd(el, tijd) {
+  document.querySelectorAll('.tijdslot:not(.vol)').forEach(t => t.classList.remove('selected'));
+  el.classList.add('selected');
+  state.tijd = tijd;
+  updateUI();
+}
+
+// Listen for datum & naam changes
+document.getElementById('inp-datum').addEventListener('change', function() {
+  state.datum = this.value; updateUI();
+});
+document.getElementById('inp-naam').addEventListener('input', function() {
+  updateUI();
+});
+
+// Submit
+function submitWizard() {
+  state.naam = document.getElementById('inp-naam').value.trim();
+  state.tel  = document.getElementById('inp-tel').value.trim();
+
+  // Build summary
+  const rows = [
+    ['Vestiging', state.vestiging],
+    ['Behandeling', state.behandeling],
+    ['Kapster', state.kapster],
+    ['Datum', state.datum ? new Date(state.datum).toLocaleDateString('nl-NL',{weekday:'long',day:'numeric',month:'long'}) : '—'],
+    ['Tijd', state.tijd],
+    ['Naam', state.naam],
+    ['Telefoon', state.tel || '—'],
+  ];
+  document.getElementById('bev-summary').innerHTML = rows.map(([k,v]) =>
+    `<div class="bev-row"><span>${k}</span><span>${v||'—'}</span></div>`).join('');
+
+  // WhatsApp link
+  const waNum = state.vestiging === 'Blerick' ? '31773829040' : '31773736233';
+  const msg = encodeURIComponent(
+    `Hallo Square Kappers ${state.vestiging}!\n\nIk wil graag een afspraak maken:\n` +
+    `• Behandeling: ${state.behandeling}\n• Kapster: ${state.kapster}\n` +
+    `• Datum: ${state.datum}\n• Tijd: ${state.tijd}\n• Naam: ${state.naam}\n• Tel: ${state.tel||'—'}\n\nGroetjes!`
+  );
+  document.getElementById('btn-wa-confirm').href = `https://wa.me/${waNum}?text=${msg}`;
+
+  state.step = 5;
+  updateUI();
+}
+</script>
+<!-- DEMO PROTECTION BAR -->
+<div class="demo-bar">
+  <div class="demo-bar-left">
+    <div class="demo-bar-logo"><em>Clear</em>site</div>
+    <div class="demo-bar-divider"></div>
+    <div>
+      <div class="demo-bar-label">Demo website</div>
+      <div class="demo-bar-name">Square Kappers — Tegelen & Blerick</div>
+    </div>
+  </div>
+  <div class="demo-bar-right">
+    <div class="demo-bar-info">Deze site is eigendom van Clearsite · clearsite.nl</div>
+    <a class="demo-bar-cta" href="https://wa.me/31600000000?text=Hoi%20Clearsite!%20Ik%20heb%20de%20demo%20gezien%20en%20wil%20graag%20meer%20informatie." target="_blank">Website activeren →</a>
+  </div>
+</div>
+
+<!-- WATERMARK -->
+<div class="demo-watermark">
+  <div class="demo-watermark-text">© Clearsite · Demo</div>
+</div>
+
+</body>
+</html>
